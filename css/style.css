@@ -11,7 +11,7 @@ body {
     font-size: 11px !important; color: #444; background-color: #eee; border: solid 1px #eee;
 }
 
-.btnsm:hover{background-color: #26a69a; color: #fff; border-color:#26a69a;}
+.btnsm:hover, .btnsm:focus{background-color: #26a69a; color: #fff; font-weight: 700; border-color:#26a69a;}
 .relative{position: relative ;}
 .leftsd{box-shadow: inset 8px 0 9px -8px rgba(0,0,0,0.2);}
 .rightsd{box-shadow: inset -8px 0 9px -8px rgba(0,0,0,0.2);}
@@ -30,7 +30,7 @@ body {
 .mgt30{margin-top: 30px !important;} 
 .mgan{margin:0px !important;}
 .mgt65{margin-top: 65px !important;}
-
+.ftw100{font-weight: 100;}
 .mgtn{margin-top: 0px !important;}
 .imglist{height: 110px;}
 hr{border-top: solid 1px #ddd !important;
@@ -43,7 +43,7 @@ hr{border-top: solid 1px #ddd !important;
 .pdt10{padding-top: 10px !important;}
 .pdr10{padding-right: 10px !important;}
 .pdln{padding-left: 0px !important;}
-
+.linht15{line-height: 14px;}
 .pdrn{padding-right: 0px !important;}
 .bodb{border-bottom: 1px solid #ddd;}
 .bodl{border-left: 1px solid #ddd;}
@@ -169,6 +169,14 @@ box-shadow: -4px 15px 45px 2px rgba(0,0,0,0.3);
 .morelink {
     display: block;
 }
+.transformfix{position: absolute; left: 50%;  z-index: 9; top: 50%; transform: translate(-50%, -50%);}
+
+/*register start*/
+.btfacebook:hover, .btgoogle:hover{opacity: 0.9;}
+.icongoogle,.facebookicon{width: 24px; height: 24px; margin-top: 14px;}
+.btn-full{width: 100%;}
+.reg_box50{width:500px !important;}
+/*register end*/
 
 
 
@@ -207,6 +215,9 @@ i.left { margin-right: 10px; }
 @media screen and (min-width:993px) and (max-width: 1200px) {
     #seesample_popup{right: 0px; top: -24px; left: auto;}
 }
+
+
+
 
 
 

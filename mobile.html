@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="row">
+<!-- <div class="container">
+        <div class="row">
         <div class="input-field col s4">
             <input id="first_name" type="text" class="validate" ng-model="user.mobile">
             <label for="first_name">10 Digit Mobile Number</label>
@@ -15,6 +15,38 @@
         </div>
         <div class="col s4">
             <a class="waves-effect waves-light btn" ng-click="verifyOtp()"><i class="material-icons right">cloud</i>Verify otp</a>
+        </div>
+    </div>
+</div> -->
+<div class="row mgbn transformfix">
+    <div class="container reg_box50">
+        <div class="row relative">
+            <div class="col s12 card pda20">
+                <div class="row">
+                    <div class="col s12 pdb10 mgt10 center">
+                        <i class="material-icons medium">phone</i>
+                        <h3 class="ft15 ftw300  grey-text text-darken-2"> Enter your 10 digit mobile number</b></h3>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="first_name" type="text" class="validate mgb10" ng-model="user.mobile">
+                        <label for="first_name">10 Digit Mobile Number</label>
+                    </div>
+                      <div class="col s12 center mgt20">
+                        <a href="" class="btn btn-full btn-large b darken-4 white-text" ng-click="sendOtp()"> Send OTP</a>
+                    </div>
+                </div>
+               
+                <div class="row" ng-show="otpStatus">
+                    <div class="input-field col s12">
+                        <input id="otp" type="text" class="validate mgb10" ng-model="user.otp">
+                        <label for="otp">Enter 4 digit OTP</label>
+                    </div>
+                    <div class="col s12 center mgt20">
+                        <a href="" class="btn btn-full btn-large b darken-4 white-text" ng-click="verifyOtp()"> Verify OTP</a>
+                    </div>
+                </div>
+              
+            </div>
         </div>
     </div>
 </div>
