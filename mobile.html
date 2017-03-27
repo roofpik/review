@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="input-field col s4">
+            <input id="first_name" type="text" class="validate" ng-model="user.mobile">
+            <label for="first_name">10 Digit Mobile Number</label>
+        </div>
+        <div class="col s4">
+            <a class="waves-effect waves-light btn" ng-click="sendOtp()"><i class="material-icons right">cloud</i>Send OTP</a>
+        </div>
+    </div>
+    <div class="row" ng-show="otpStatus">
+        <div class="input-field col s4">
+            <input id="otp" type="text" class="validate" ng-model="user.otp">
+            <label for="otp">Enter 4 digit OTP</label>
+        </div>
+        <div class="col s4">
+            <a class="waves-effect waves-light btn" ng-click="verifyOtp()"><i class="material-icons right">cloud</i>Verify otp</a>
+        </div>
+    </div>
+</div>
