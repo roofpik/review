@@ -5,20 +5,16 @@
                 <div class="col s12 m12 l8 pdr30 rightsd">
                     <h3 class="heading">Write Review</h3>
                     <form name="reviewForm">
-                    
-                        <div class="row mgln mgrn">                          
-                             <div class="col s12 pdln ft18 b bodb pdb10 mgt20">
+                        <div class="row mgln mgrn">
+                            <div class="col s12 pdln ft18 b bodb pdb10 mgt20">
                                 Tell us about yourself?
                             </div>
                         </div>
-
-                        <div class="row">                           
+                        <div class="row">
                             <div class="col s12 input-field">
                                 <input id="project-name" type="text" ng-model="review.project" required>
                                 <label for="project-name">Select Project/Locality/Location</label>
                             </div>
-                            </div>
-                            <div class="row">
                             <div class="col s4 input-field">
                                 <select ng-model="review.userType">
                                     <option value="" disabled selected>Choose your option</option>
@@ -50,15 +46,15 @@
                                 </select>
                             </div>
                             <div class="input-field col s4">
-                                <input id="review-title" type="text" ng-model="review.houseno" required>
-                                <label for="review-title">House/Flat No</label>
+                                <input id="houseno" type="text" ng-model="review.houseno" required>
+                                <label for="houseno">House/Flat No</label>
                             </div>
                             <div class="input-field col s4">
-                                <input id="review-title" type="text" ng-model="review.yob" required>
-                                <label for="review-title">Tower/Block</label>
+                                <input id="tower" type="text" ng-model="review.yob" required>
+                                <label for="tower">Tower/Block</label>
                             </div>
                         </div>
-                        <div class="row mgln mgrn">                          
+                         <div class="row mgln mgrn">                          
                               <div class="col s12 pdln ft18 b bodb pdb10 mgt20">
                                 Your first-hand experiences really help other residents. Thanks!
                             </div>
@@ -69,7 +65,7 @@
                                 <span class="left starrating">
                                     <review-ratings ratingsobj='ratingsObject' index='1'></review-ratings>
                                 </span>
-                                <span class="arrow_box ratbox left b white-text">Click to rate</span>
+                                <span class="arrow_box ratbox left b white-text">{{ratingTxt.overall}}</span>
                             </div>
                         </div>
                         <hr>
@@ -88,35 +84,37 @@
                             </div>
                             <div class="col s12 text-count" ng-hide="textcount"> <span class="validate" id="textcount">{{data.textlength}}</span>/100 </div>
                         </div>
-                        <div class="row mgln mgrn">
+                     <div class="row mgln mgrn">
                             <div class="col s12 pdln ft18 b bodb pdb10 mgt20"> Could you say a little more about it? <span class="ft13 grey-text ftw100">(optional)</span>
                             </div>
                             <div class="col s12 pdln mgt20 ft15 pdb10">We'd love your opinion! Anything you can share will help other travellers choose their perfect hotel. Thanks.</div>
                         </div>
                         <div class="mgt20 row mgln mgrn">
-                            <div class="row mgbn" ng-repeat="item in ratingParams">
+                            <div class="row" ng-repeat="item in ratingParams">
                                 <div class="col s4 ft13 pdb10">{{item.name}}</div>
                                 <div class="col s6 pdl0 grey-text pointer">
                                     <span class="left starrating">
                                        <review-ratings ratingsobj='ratingsObject' index='item.id'></review-ratings>
                                     </span>
-                                    <span class="arrow_box ratbox left b white-text">Click to rate</span>
+                                    <span class="arrow_box ratbox left b white-text">{{item.rtxt}}</span>
                                 </div>
                             </div>
                             <hr>
+
+
                             <div class="row mgb10 mgt20 xspdb10">
                                 <div class="col s12 m4 ft13 b">Good Schools?
                                     <p class="ft11 linht15 mgtn ftw100">lorem ipsum Anything you can choose lorem ipsum</p>
                                 </div>
                                 <div class="col s12 m6 no-padding grey-text xspdt10">
                                     <div class="col pdrn xspdln">
-                                        <input class="btn btnsm" type="button" value="Not Sure">
+                                        <input class="btn btnsm" type="button" value="Not Sure" ng-model="review.school">
                                     </div>
                                     <div class="col">
-                                        <input class="btn btnsm" type="button" value="No">
+                                        <input class="btn btnsm" type="button" value="No" ng-model="review.school">
                                     </div>
                                     <div class="col no-padding xspdn">
-                                        <input class="btn btnsm" type="button" value="Yes">
+                                        <input class="btn btnsm" type="button" value="Yes" ng-model="review.school">
                                     </div>
                                 </div>
                             </div>
@@ -126,13 +124,13 @@
                                 </div>
                                 <div class="col s12 m6 no-padding grey-text xspdt10">
                                     <div class="col pdrn xspdln">
-                                        <input class="btn btnsm" type="button" value="Not Sure">
+                                        <input class="btn btnsm" type="button" value="Not Sure" ng-model="review.markets">
                                     </div>
                                     <div class="col">
-                                        <input class="btn btnsm" type="button" value="No">
+                                        <input class="btn btnsm" type="button" value="No" ng-model="review.markets">
                                     </div>
                                     <div class="col no-padding xspdn">
-                                        <input class="btn btnsm" type="button" value="Yes">
+                                        <input class="btn btnsm" type="button" value="Yes" ng-model="review.markets">
                                     </div>
                                 </div>
                             </div>
@@ -152,26 +150,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mgb10 mgt20">
-                                <div class="col s4 ft13">Good Schools?</div>
-                                <div class="col s6 no-padding grey-text">
-                                    <div class="col">
-                                        <input class="with-gap" name="group2" type="radio" id="schoolsNotSure" ng-model="review.goodSchools" value="Not Sure">
-                                        <label for="schoolsNotSure">Not Sure</label>
-                                    </div>
-                                    <div class="col">
-                                        <input class="with-gap" name="group2" type="radio" id="schoolsNo" ng-model="review.goodSchools" value="No">
-                                        <label for="schoolsNo">No</label>
-                                    </div>
-                                    <div class="col xspdn">
-                                        <input class="with-gap" name="group2" type="radio" id="schoolsYes" ng-model="review.goodSchools" value="Yes">
-                                        <label for="schoolsYes">Yes</label>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="row mgb10">
                                 <div class="col s4 ft13">Good Markets?</div>
-                                <div class="col s6 no-padding grey-text">
+                                <div class="col s6 pdan grey-text">
                                     <div class="col">
                                         <input class="with-gap" name="group3" type="radio" id="marketsNotSure" ng-model="review.markets" value="Not Sure">
                                         <label for="marketsNotSure">Not Sure</label>
@@ -188,7 +170,7 @@
                             </div>
                             <div class="row mgb10">
                                 <div class="col s4 ft13">Reputed Hospitals?</div>
-                                <div class="col s6 no-padding grey-text">
+                                <div class="col s6 pdan grey-text">
                                     <div class="col">
                                         <input class="with-gap" name="group4" type="radio" id="hospitalsNotSure" ng-model="review.goodHospitals" value="Not Sure">
                                         <label for="hospitalsNotSure">Not Sure</label>
@@ -205,86 +187,86 @@
                             </div>
                             <div class="row mgb10">
                                 <div class="col s4 ft13 pdb10">Daily Need Items?</div>
-                                <div class="col s6 no-padding grey-text">
-                                    <div class="col">
-                                        <input class="with-gap" name="group5" type="radio" id="dailyNeedsNotSure" ng-model="review.dailyNeedItems" value="Not Sure">
-                                        <label for="dailyNeedsNotSure">Not Sure</label>
+                                <div class="col s6 pdan grey-text">
+                                    <div class="col xspdn">
+                                        <input class="with-gap" name="group5" type="radio" id="dailyNeedsYes" ng-model="review.location" value="Yes">
+                                        <label for="dailyNeedsYes">Yes</label>
                                     </div>
                                     <div class="col">
-                                        <input class="with-gap" name="group5" type="radio" id="dailyNeedsNo" ng-model="review.dailyNeedItems" value="No">
+                                        <input class="with-gap" name="group5" type="radio" id="dailyNeedsNo" ng-model="review.location" value="No">
                                         <label for="dailyNeedsNo">No</label>
                                     </div>
-                                    <div class="col xspdn">
-                                        <input class="with-gap" name="group5" type="radio" id="dailyNeedsYes" ng-model="review.dailyNeedItems" value="Yes">
-                                        <label for="dailyNeedsYes">Yes</label>
+                                    <div class="col">
+                                        <input class="with-gap" name="group5" type="radio" id="dailyNeedsNotSure" ng-model="review.location" value="Not Sure">
+                                        <label for="dailyNeedsNotSure">Not Sure</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mgb10">
                                 <div class="col s4 ft13 pdb10">Public Transport?</div>
-                                <div class="col s6 no-padding grey-text">
-                                    <div class="col">
-                                        <input class="with-gap" name="group6" type="radio" id="transportNotSure" ng-model="review.easyAccessToPublicTransport" value="Not Sure">
-                                        <label for="transportNotSure">Not Sure</label>
+                                <div class="col s6 pdan grey-text">
+                                    <div class="col xspdn">
+                                        <input class="with-gap" name="group6" type="radio" id="transportYes" ng-model="review.transport" value="Yes">
+                                        <label for="transportYes">Yes</label>
                                     </div>
                                     <div class="col">
-                                        <input class="with-gap" name="group6" type="radio" id="transportNo" ng-model="review.easyAccessToPublicTransport" value="No">
+                                        <input class="with-gap" name="group6" type="radio" id="transportNo" ng-model="review.transport" value="No">
                                         <label for="transportNo">No</label>
                                     </div>
-                                    <div class="col xspdn">
-                                        <input class="with-gap" name="group6" type="radio" id="transportYes" ng-model="review.easyAccessToPublicTransport" value="Yes">
-                                        <label for="transportYes">Yes</label>
+                                    <div class="col">
+                                        <input class="with-gap" name="group6" type="radio" id="transportNotSure" ng-model="review.transport" value="Not Sure">
+                                        <label for="transportNotSure">Not Sure</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mgb10">
                                 <div class="col s4 ft13 pdb10">Apartment Layout Efficient?</div>
-                                <div class="col s6 no-padding grey-text">
-                                    <div class="col">
-                                        <input class="with-gap" name="group7" type="radio" id="layoutNotSure" ng-model="review.apartmentLayoutEfficient" value="Not Sure">
-                                        <label for="layoutNotSure">Not Sure</label>
+                                <div class="col s6 pdan grey-text">
+                                    <div class="col xspdn">
+                                        <input class="with-gap" name="group7" type="radio" id="layoutYes" ng-model="review.layout" value="Yes">
+                                        <label for="layoutYes">Yes</label>
                                     </div>
                                     <div class="col">
-                                        <input class="with-gap" name="group7" type="radio" id="layoutNo" ng-model="review.apartmentLayoutEfficient" value="No">
+                                        <input class="with-gap" name="group7" type="radio" id="layoutNo" ng-model="review.layout" value="No">
                                         <label for="layoutNo">No</label>
                                     </div>
-                                    <div class="col xspdn">
-                                        <input class="with-gap" name="group7" type="radio" id="layoutYes" ng-model="review.apartmentLayoutEfficient" value="Yes">
-                                        <label for="layoutYes">Yes</label>
+                                    <div class="col">
+                                        <input class="with-gap" name="group7" type="radio" id="layoutNotSure" ng-model="review.layout" value="Not Sure">
+                                        <label for="layoutNotSure">Not Sure</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mgb10">
                                 <div class="col s4 ft13 pdb10">24x7 Electricity?</div>
-                                <div class="col s6 no-padding grey-text">
-                                    <div class="col">
-                                        <input class="with-gap" name="group8" type="radio" id="electricityNotSure" ng-model="review['24x7electricity']" value="Not Sure">
-                                        <label for="electricityNotSure">Not Sure</label>
+                                <div class="col s6 pdan grey-text">
+                                    <div class="col xspdn">
+                                        <input class="with-gap" name="group8" type="radio" id="electricityYes" ng-model="review.electricity" value="Yes">
+                                        <label for="electricityYes">Yes</label>
                                     </div>
                                     <div class="col">
-                                        <input class="with-gap" name="group8" type="radio" id="electricityNo" ng-model="review['24x7electricity']" value="No">
+                                        <input class="with-gap" name="group8" type="radio" id="electricityNo" ng-model="review.electricity" value="No">
                                         <label for="electricityNo">No</label>
                                     </div>
-                                    <div class="col xspdn">
-                                        <input class="with-gap" name="group8" type="radio" id="electricityYes" ng-model="review['24x7electricity']" value="Yes">
-                                        <label for="electricityYes">Yes</label>
+                                    <div class="col">
+                                        <input class="with-gap" name="group8" type="radio" id="electricityNotSure" ng-model="review.electricity" value="Not Sure">
+                                        <label for="electricityNotSure">Not Sure</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mgb10">
                                 <div class="col s4 ft13 pdb10">Regular/Clean Water Supply?</div>
-                                <div class="col s6 no-padding grey-text">
-                                    <div class="col">
-                                        <input class="with-gap" name="group9" type="radio" id="waterNotSure" ng-model="review.regularCleanWaterSupply" value="NotSure">
-                                        <label for="waterNotSure">Not Sure</label>
+                                <div class="col s6 pdan grey-text">
+                                    <div class="col xspdn">
+                                        <input class="with-gap" name="group9" type="radio" id="waterYes" ng-model="review.water" value="Yes">
+                                        <label for="waterYes">Yes</label>
                                     </div>
                                     <div class="col">
-                                        <input class="with-gap" name="group9" type="radio" id="waterNo" ng-model="review.regularCleanWaterSupply" value="No">
+                                        <input class="with-gap" name="group9" type="radio" id="waterNo" ng-model="review.water" value="No">
                                         <label for="waterNo">No</label>
                                     </div>
-                                    <div class="col xspdn">
-                                        <input class="with-gap" name="group9" type="radio" id="waterYes" ng-model="review.regularCleanWaterSupply" value="Yes">
-                                        <label for="waterYes">Yes</label>
+                                    <div class="col">
+                                        <input class="with-gap" name="group9" type="radio" id="waterNotSure" ng-model="review.water" value="NotSure">
+                                        <label for="waterNotSure">Not Sure</label>
                                     </div>
                                 </div>
                             </div>
@@ -323,29 +305,18 @@
                         <p ng-hide="loginStatus" id="loginSignup">Please login/signup to submit review *</p>
                     </form>
                 </div>
-                <div class="col s12 m12 l4 justify pdl30 mgt65 smxst">
-                    <div class="row mgan relative">
+                <div class="col m4 justify pdl30 abs htfull right0 leftsd" ng-show="idPresent">
+                    <div class="row mgan">
                         <div class="col s12">
                             <a onclick="$('#seesample_popup') .css ('display','block')" class="pointer ft12">
                                 See a sample
                             </a>
                             <h3 class="ft15 b">Recent reviews of this property</h3>
                         </div>
-                        <div id="seesample_popup" class="white pda20">
-                            <i onclick="$('#seesample_popup') .css ('display','none')" class="material-icons right ft17 grey-text pointer">close</i>
-                            <h5 class="mgtn ft15 b">Reviewing Tips</h5>
-                            <hr> Your review can directly impact someone’s decision to buy or rent property. So make it count by using these reviewing tips:
-                            <p>
-                                <b>Remain Relevant:</b> A review with the relevant details garners more ratings and trust. Avoid excessive complaints or compliments, provide specific details where possible, and be objective about your views. The best reviews state both pros and cons.
-                            </p>
-                            <p>
-                                <b>Honesty Helps:</b> Although this is a neutral platform for users to openly share their views, reviews with discriminatory, libellous, or profane content will not pass the verification stage. Share your own experiences and not what you’ve heard about the property or neighbourhood you’re reviewing.
-                            </p>
-                        </div>
                     </div>
                     <div class="row bdbtm ft12 grey-text text-darken-2 mgln mgrn" id="Reviews">
                         <div class="col s2 b">
-                            <img class="imgcir imgcir40 mgt10" src="images/noImage.png">
+                            <img class="imgcir imgcir40 mgt10" src="images/general/noImage.png">
                         </div>
                         <div class="col s10">
                             <div class="grey-text text-darken-2 pdt10"> Rajneesh Sharma | Sep 01, 16</div>
@@ -365,7 +336,7 @@
                     </div>
                     <div class="row bdbtm ft12 grey-text text-darken-2 mgln mgrn" id="Reviews">
                         <div class="col s2 b">
-                            <img class="imgcir imgcir40 mgt10" src="images/noImage.png">
+                            <img class="imgcir imgcir40 mgt10" src="images/general/noImage.png">
                         </div>
                         <div class="col s10">
                             <div class="grey-text text-darken-2 pdt10"> Rajneesh Sharma | Sep 01, 16</div>
@@ -385,7 +356,7 @@
                     </div>
                     <div class="row bdbtm ft12 grey-text text-darken-2 mgln mgrn" id="Reviews">
                         <div class="col s2 b">
-                            <img class="imgcir imgcir40 mgt10" src="images/noImage.png">
+                            <img class="imgcir imgcir40 mgt10" src="images/general/noImage.png">
                         </div>
                         <div class="col s10">
                             <div class="grey-text text-darken-2 pdt10"> Rajneesh Sharma | Sep 01, 16</div>
@@ -406,5 +377,16 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div id="seesample_popup" class="white pda20">
+        <i onclick="$('#seesample_popup') .css ('display','none')" class="material-icons right ft17 grey-text pointer">close</i>
+        <h5 class="mgtn ft15 b">Reviewing Tips</h5>
+        <hr> Your review can directly impact someone’s decision to buy or rent property. So make it count by using these reviewing tips:
+        <p>
+            <b>Remain Relevant:</b> A review with the relevant details garners more ratings and trust. Avoid excessive complaints or compliments, provide specific details where possible, and be objective about your views. The best reviews state both pros and cons.
+        </p>
+        <p>
+            <b>Honesty Helps:</b> Although this is a neutral platform for users to openly share their views, reviews with discriminatory, libellous, or profane content will not pass the verification stage. Share your own experiences and not what you’ve heard about the property or neighbourhood you’re reviewing.
+        </p>
     </div>
 </div>
